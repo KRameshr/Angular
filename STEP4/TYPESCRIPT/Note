@@ -1,0 +1,24 @@
+types the ECMA
+
+setup 
+npm i typescript -g
+tsc -v
+
+ creat src is sources folder  in that files One.ts
+ cs src file then command is src> trs file.ts then will copy the js file 
+script is out put folder
+
+then after updating any data in the folder 
+tsc filename -w 
+
+how to generate the config file in ty
+
+
+tsc --init
+set config
+
+tsc 
+
+
+node is common js like require 
+ese is export and import
