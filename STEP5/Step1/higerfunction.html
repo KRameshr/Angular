@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!--  -->
+    <script>
+      // Higher Function
+
+      function composition(fun1, fun2, fun3) {
+        return function (num) {
+          return fun1(fun2(fun3(num)));
+        };
+      }
+      function firstfun(num) {
+        return num + num;
+      }
+      function secondfun(num) {
+        return num * num;
+      }
+      function thirdfun(num) {
+        return num + num;
+      }
+      let comp = composition(firstfun, secondfun, thirdfun);
+      console.log(comp(5));
+
+      // //
+
+      function compostionFunction(obj) {
+        return function (objTwo) {
+          // let tc = new TargetClass();
+          return {
+            titlepropertyOne: obj.title,
+            titlepropertyTwo: objTwo,
+          };
+        };
+      }
+      let virableNameOne = {
+        title: "HEllo world",
+      };
+
+      let functionOne = compostionFunction(virableNameOne);
+      finalOutPut = functionOne(5);
+      console.log(finalOutPut);
+      //
+
+      let virableNameTwo = {
+        title: "HEllo world Some exitment",
+      };
+      let functionTwo = compostionFunction(virableNameTwo)(9);
+      console.log(functionTwo);
+
+      // //
+
+      function Componet(TargetClass) {
+        return function (params) {
+          let tc = new TargetClass();
+          return class {
+            titile = tc.titile;
+            selector = params.selector;
+            template = params.template;
+          };
+        };
+      }
+
+      class Appcom {
+        titile = "App Component's Title";
+      }
+      let mycomp = Componet(Appcom)({
+        selector: "app-root",
+        template: "well come to the angular ",
+      });
+      let myComp = new mycomp();
+      console.log("----------------------------");
+      console.log(myComp.titile);
+      console.log(myComp.selector);
+      console.log(myComp.template);
+
+      //
+      class AppcomTwo {
+        titile = "App Component's Title Two";
+      }
+      let mycomping = Componet(AppcomTwo)({
+        selector: "app-root Two",
+        template: "well come to the angular  Two",
+      });
+      let myComping = new mycomping();
+      console.log("----------------------------");
+      console.log(myComping.titile);
+      console.log(myComping.selector);
+      console.log(myComping.template);
+      /////
+    </script>
+  </head>
+  <body></body>
+</html>
