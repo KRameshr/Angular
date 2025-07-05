@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // Destractur
+      let hero = {
+        title: "Ramesh",
+        power: 6,
+      };
+      heroTwo = hero;
+      console.log(heroTwo.title);
+      heroTwo.title = "Suresh";
+      console.log(heroTwo.title);
+      var { title: herotitle, power: heropower } = hero;
+      herotitle = "Ramesh Kumar";
+      console.log(herotitle);
+      console.log(heropower);
+      let tempheroone = { ...hero };
+      console.log(tempheroone);
+
+      var justiceLeage = ["BatMan", "SurperMan"];
+      console.log(justiceLeage);
+      justiceLeage[0] = "Ramesh";
+      console.log(justiceLeage);
+      var [fisrt, second, third] = justiceLeage;
+      console.log(fisrt);
+      fisrt = "naraya dentels";
+      console.log(fisrt);
+      console.log(hero);
+      let temphero = JSON.stringify(hero);
+      console.log(temphero);
+      let tempheroo = JSON.parse(temphero);
+      console.log(tempheroo.title);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    // array bulid in methord
+    var favList = [];
+    for (let i = 0; i < 15; i++) {
+      favList.push(Math.floor(Math.random() * 100));
+    }
+    //
+    console.log(favList);
+    console.log(favList[14]);
+    //
+    for (let i = 0; i < favList.length; i++) {
+      console.log(favList[i]);
+    }
+    //
+    let arrayThing = favList;
+    console.log(...arrayThing);
+    //
+    favList.forEach((val, idx, arr) => console.log(arr));
+
+    favList.forEach((val) => console.log(val ** 2));
+
+    //
+    let arrowthe = favList.map((val) => val * 3);
+    console.log(arrowthe);
+    var fltfiler = favList.filter((val) => val < 50);
+    console.log(fltfiler);
+    console.log("fillee");
+    var aresomevaluelessthan50 = favList.some((val) => {
+      console.log(val);
+      return val < 50;
+    });
+    console.log(aresomevaluelessthan50);
+    console.log("fillearesomevaluelessthan50e");
+    var areevryvaluelessthan50 = favList.every((val) => {
+      console.log(val);
+      return val < 50;
+    });
+    console.log(areevryvaluelessthan50);
+
+    console.log("reduced");
+    var total = favList.reduce((val, ind) => {
+      return (ind += val);
+    }, 20);
+    console.log(total);
+    console.log(favList.indexOf(56));
+    console.log(favList.indexOf(5, favList.indexOf(2) + 1));
+    console.log(favList.lastIndexOf(56));
+  </script>
+  <body></body>
+</html>

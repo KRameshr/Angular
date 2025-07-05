@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    function adder(...nums) {
+      //   let num11 = null || 9;
+      //   let num22 = undefined || 9;
+      //   return num1 + num2;
+      let total = 0;
+      for (let i = 0; i < nums.length; i++) {
+        total += nums[i];
+      }
+      return total;
+    }
+    console.log("manuval " + adder(4, 7));
+    console.log("undefined " + adder(undefined, 7));
+
+    console.log(adder(null, 7)); //nan
+
+    console.log(adder(7));
+    console.log(adder(7, 9, 9));
+    console.log(adder(7, 98, 78));
+
+    // spread syntax
+    function rotating(...adds) {
+      let total = 0;
+      for (let i = 0; i < adds.length; i++) {
+        total += adds[i];
+      }
+      return total;
+    }
+    console.log(rotating(2, 25, 2, 6, 8));
+    let array = [23, 7, 89, 98, 90];
+    console.log(rotating(...array));
+  </script>
+  <body></body>
+</html>

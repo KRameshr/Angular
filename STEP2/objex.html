@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var obj = new Object();
+      var obj1 = {
+        title: "ramesh",
+        age: 21,
+        class: "EEE",
+        rollNumber: "2A$",
+      };
+      for (let ob in obj1) {
+        console.log(ob);
+      }
+
+      //  ++++++++++++++++++++++++++++++++
+      var hero = Object.create(null);
+      // obj2.title = "ir";
+      // console.log(obj2);
+      Object.defineProperty(hero, "hour", {
+        value:
+          "Object are immutabele so if want to change the properties of the object then writable propr should be in true object propert will be change defalt it is false",
+        writable: true,
+        enumerable: true,
+        // enumerable is discoved by objecties
+      });
+      console.log(hero.hour);
+      hero.hour =
+        "writable propr should be in true object propert will be change";
+      console.log(hero.hour);
+      for (let ob in hero) {
+        console.log(ob);
+      }
+      console.log("NExt => Object discriptor");
+
+      //
+
+      var heroTwo = Object.create(null);
+      Object.defineProperty(heroTwo, "tilte", {
+        configurable: true,
+        value: "Organised the function ",
+        writable: true,
+        enumerable: true,
+      });
+
+      for (let obTwo in heroTwo) {
+        console.log(obTwo);
+      }
+
+      //
+      Object.defineProperty(heroTwo, "access_tilte", {
+        get: function () {
+          // get is a anomous function
+          return this.title;
+        },
+        set: function (ntitile) {
+          this.title = ntitile;
+        },
+      });
+      console.log(heroTwo.access_tilte); //getter
+      heroTwo.access_tilte = "Jokers"; //setter
+      console.log(heroTwo.access_tilte); //getter
+
+      let objOne = {
+        firstName: " Ramesh",
+        lastName: "kuram",
+        age: 10,
+        Number: 89000330000,
+      };
+      for (let objing in objOne) {
+        console.log(objing);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
