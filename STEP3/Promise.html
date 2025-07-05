@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    // higer order function
+    let agree = true;
+    let letPromise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (agree) {
+          resolve(" promise is resolved ");
+        } else {
+          reject(" promise is reject ");
+        }
+      }, 4000);
+    });
+    //
+
+    letPromise.then((res) => console.log(res));
+    letPromise.then(
+      function (res) {
+        console.log(res);
+      },
+      function (res) {
+        console.log(res);
+      }
+    );
+    letPromise.catch((err) => console.log(err));
+    letPromise.finally(() => console.log("Promise is solved"));
+
+    //
+
+    letPromise
+      .then((res) => {
+        console.log("Success 1", res);
+        return res.toUpperCase();
+      })
+      .then(
+        (res) => {
+          console.log("Success 2", res);
+          return res.toLowerCase();
+        },
+        (res) => {
+          console.log("Success 2.1", res);
+          return res.toLowerCase();
+        }
+      )
+      .then((res) => {
+        console.log("Success 3", res);
+      })
+      .catch((err) => {
+        console.log("Rejected", err);
+      })
+      .finally(() => {
+        console.log("Promises is now Settled");
+      });
+
+    //
+
+    //
+    let firstPromise = function () {
+      return new Promise((resolved, reject) => {
+        setTimeout(() => {
+          if (agree) {
+            console.log("_______________________________ ");
+            resolved(" promise is resolved firstPromise");
+          } else {
+            console.log("_______________________________ ");
+            reject(" promise is reject firstPromise");
+          }
+        }, 1000);
+      });
+    };
+
+    let secondPromise = function () {
+      return new Promise((resolved, reject) => {
+        setTimeout(() => {
+          if (agree) {
+            console.log("_______________________________ ");
+            resolved(" promise is resolved secondPromise");
+          } else {
+            console.log("_______________________________ ");
+            reject(" promise is reject secondPromise");
+          }
+        }, 2000);
+      });
+    };
+
+    let thirdPromise = function () {
+      return new Promise((resolved, reject) => {
+        setTimeout(() => {
+          if (agree) {
+            console.log("_______________________________ ");
+            resolved(" promise is resolved thirdPromise");
+          } else {
+            console.log("_______________________________ ");
+            reject(" promise is reject thirdPromise");
+          }
+        }, 3000);
+      });
+    };
+
+    Promise.all([firstPromise(), secondPromise(), thirdPromise()])
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err))
+      .finally(() => console.log("all promise are resolved All "));
+
+    Promise.any([firstPromise(), secondPromise(), thirdPromise()])
+      .then((res) => console.log("Any" + res))
+      .catch((err) => console.log("Any" + err))
+      .finally(() => console.log("all promise are resolved Any"));
+
+    Promise.race([firstPromise(), secondPromise(), thirdPromise()])
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err))
+      .finally(() => console.log("all promise are resolved Race"));
+
+    Promise.allSettled([firstPromise(), secondPromise(), thirdPromise()])
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err))
+      .finally(() => console.log("all promise are resolved AllSettled"));
+  </script>
+  <body>
+    <p>50</p>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      var title = "Global Title";
+      console.log(this.title);
+      var firstClass = function () {
+        this.title = "dafault Titiles";
+        // this contest of the parameter
+      };
+      var firstClass = new firstClass();
+      console.log(firstClass.title);
+
+      //
+      var secondClass = function (title) {
+        this.title = title;
+        this.sayTitleInUpperCase = () => {
+          return this.title.toUpperCase();
+        };
+      };
+      secondClass.prototype.sayTitleInUpperCase = () => {
+        return this.title.toUpperCase();
+      };
+      var hero = new secondClass("hello first");
+      var heroo = new secondClass("hello seconds");
+      //   above is called instance
+      console.log(hero.title);
+      console.log(hero.sayTitleInUpperCase());
+      console.log(heroo.title);
+      console.log(heroo.sayTitleInUpperCase());
+
+      //
+
+      class person {
+        strength = "ramesh";
+        constructor(hstrength = "My name suresh") {
+          this.strength = hstrength;
+        }
+      }
+      class heroclassone extends person {
+        name = "Ramesh";
+        funclass() {
+          return this.name.toUpperCase();
+        }
+      }
+      let classone = new heroclassone();
+      let classtwo = new heroclassone();
+      console.log(classone.strength);
+      console.log("________________________________");
+      console.log(classone.name);
+      console.log(classtwo.funclass());
+
+      class heroclasssecond extends person {
+        static version = 100;
+
+        // public properties
+        fistName = "default";
+        secondName = "default";
+
+        // private properties
+        #power = 10;
+
+        constructor(fname, sname, hstrength) {
+          super(hstrength);
+          this.fistName = fname;
+          this.secondName = sname;
+        }
+        // public methord
+        heroclasssecondFunction() {
+          return this.fistName + ":" + this.secondName.toUpperCase();
+        }
+
+        get power() {
+          return this.#power;
+        }
+        set power(npower) {
+          this.#power = npower;
+        }
+        // private method
+        #setBooster() {
+          this.power = this.power * this.power;
+        }
+      }
+      var he = new heroclasssecond("Ramesh", "K", "Male");
+      var he1 = new heroclasssecond("Ramesh", "i");
+      console.log(he.heroclasssecondFunction());
+      console.log(he1.heroclasssecondFunction());
+
+      console.log(heroclasssecond.power); //getter
+
+      heroclasssecond.power = 20; //seter
+      console.log(heroclasssecond.power); //getter
+      console.log(heroclasssecond.version); // accessing static property
+
+      console.log(he.strength, "i"); // accesing the extend person
+    </script>
+  </head>
+  <body></body>
+</html>
