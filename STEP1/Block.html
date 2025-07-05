@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   var user = undefined;
+      //   console.log(user);
+      //   user = "vijay";
+      //   java script is hoisting
+
+      //   console.log(user);
+      //   for (var i = 0; i < 100; i++) {
+      //     console.log(i);
+      //   }
+      //   console.log("final " + i);
+
+      //   // window is global
+      //   //   var is not a global scope, var is scope to object
+
+      var hero = {
+        title: "Rmaesh",
+        age: 30,
+      };
+      function init() {
+        if (hero.age > 25) {
+          var temp = hero.title;
+          hero.title = temp + "oo grate man";
+          console.log("indide if " + hero.title);
+          console.log("indide if " + temp);
+        }
+
+        console.log("out if " + hero.title);
+      }
+      init();
+      console.log("function " + temp);
+      console.log("function " + hero.title);
+    </script>
+  </head>
+  <body></body>
+</html>
