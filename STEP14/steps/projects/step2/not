@@ -1,0 +1,21 @@
+// in buld life cycle methord
+
+//    constructor
+//    ngOnchanges
+//    ngOnInit
+//  hooks
+//    ngAfterContentinit
+//    ngAfterContentChecked
+//    ngAfterViewinit
+//    ngAfterViewChecked
+// directives
+// 3 type
+//     components main class
+//     structual ngForOf ngIF ngSwitch
+//     attribute ngStyle ngClass ngModel
+
+attribute directives
+
+attribute directives listen to and modify the behavior of other HTML elementd attribute properties and 
+components 
+
